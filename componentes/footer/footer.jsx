@@ -77,7 +77,8 @@ const styles = StyleSheet.create({
       margin: '10px',
       borderRadius: '50px',
       backgroundColor: 'yellow',
-      overflowWrap: 'anywhere'
+      overflowWrap: 'anywhere',
+      boxShadow: '1px -1px 20px 4px green;'
     }
   
 });
