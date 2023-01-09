@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import { FlatList } from 'react-native-web';
+import Home from './componentes/home/home';
+
 export default class App extends React.Component {
 
   constructor(props){
@@ -9,7 +11,7 @@ export default class App extends React.Component {
     this.state = {
       loading:false,
       superHeroes: [],
-      url: 'http://gateway.marvel.com/v1/public/characters?ts=1000&apikey=640b6e70babc33bb23cc4f3208aa41db&hash=ad45a5628b415c8dd0a1a6ff6d3ad79a'
+      url: 'http://gateway.marvel.com/v1/public/characters?ts=1000&apikey=c368616265ae68721baaf86d5b5da5db&hash=22baeecea9a16320e1a57cf89c6564d9'
     }
     
   }
@@ -31,12 +33,21 @@ export default class App extends React.Component {
 
         this.setState({
           superHeroes : res.data.results,
-          loading: false
+          oneHero : res.data.results[5],
+          loading : false,
         })
-
        
     });
+  }
 
+
+  randomHero(){
+    state.oneHero = state.superHeroes[2]
+  }
+
+     getRandomObjectFromArray(array) {
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return array[randomIndex];
   }
 
    
@@ -52,20 +63,18 @@ export default class App extends React.Component {
         );
     }
     return(
-    <View style={styles.container}>
-      <FlatList 
-        data={this.state.superHeroes}
-        renderItem={
-          ({item}) =><><Text>{item.name}</Text>
-          <Image style={styles.logo} source={item.thumbnail.path + `.${item.thumbnail.extension}` }/></>
-        }
-      />
 
-      
-       
+
+
+        <Home
+          style={styles.home}
+          heros = {this.state.superHeroes}
+          oneHero = {this.state.oneHero}
+        ></Home>
+
+   
 
     
-    </View>
     
     );
   }
@@ -74,16 +83,13 @@ export default class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    flexDirection:'row',
-    justifyContent: 'start',
+
+  home: {
+  
+    backgroundColor: 'black',
+    color: 'white',
+    padding: '0',
+    margin: '0',
   },
 
-  logo:{
-    width: "100%",
-    height:"100px"
-  }
 });
