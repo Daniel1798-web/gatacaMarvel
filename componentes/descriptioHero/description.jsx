@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 
 
 const Desctiption2 = (props) =>{
@@ -31,7 +30,7 @@ const styles = StyleSheet.create({
   containerText:{
     display:'flex',
     width: '100%',
-    height: '50%',
+ //   height: '50%',
   
   },
 

@@ -6,7 +6,7 @@ import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 import Desctiption2 from '../descriptioHero/description';
 import PictureHero from '../pictureHero/picture';
-
+import Footer from '../footer/footer';
  const home = (props) => {
   
   var herosList = props.heros
@@ -36,11 +36,10 @@ import PictureHero from '../pictureHero/picture';
 
 
   return (
+
     <View style={styles.container}>
 
       <div style={styles.boxButton}>
-
-
 
         <TouchableOpacity
 
@@ -55,17 +54,11 @@ import PictureHero from '../pictureHero/picture';
 
       </div>
 
-      <PictureHero
-        hero = {datos}
-      >
+      <PictureHero hero = {datos}></PictureHero>
 
-      </PictureHero>
+      <Desctiption2 hero={datos}></Desctiption2>
 
-        <Desctiption2 
-          hero={datos}>
-
-          </Desctiption2>
-
+      <Footer  hero={datos}></Footer>
     </View>
   );
 }
@@ -102,7 +95,6 @@ const styles = StyleSheet.create({
       border: 'none'
     },
 
-   
   }
 
   
